@@ -26,6 +26,8 @@ arch:
   - i386
 devices:
   - /dev/disk:/dev/disk:rwm
+  - /dev/fuse:/dev/fuse:rwm
+  - /dev/sda1:/dev:sda1:rwm
 map:
   - addon_config:rw
   - all_addon_configs:rw
@@ -36,6 +38,7 @@ map:
   - share:rw
   - ssl:rw
   - config:rw
+  - storage:rw
 ports:
   - 445/tcp: 445
   - 139/tcp: 139

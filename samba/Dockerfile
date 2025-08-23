@@ -5,7 +5,10 @@ FROM ${BUILD_FROM}
 # Install packages
 RUN apk add --no-cache \
         samba-common-tools \
-        samba-server
+        samba-server \
+        samba-client \
+        util-linux \
+        ntfs-3g
 
 RUN mkdir -p /var/lib/samba
 RUN touch /etc/samba/lmhosts \
@@ -41,13 +44,13 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="ElVit (https://github.com/ElVit)" \
+    maintainer="medictroy (https://github.com/medictroy)" \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Add-ons" \
-    org.opencontainers.image.authors="ElVit (https://github.com/ElVit)" \
+    org.opencontainers.image.authors="medictroy (https://github.com/medictroy)" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://github.com/ElVit" \
+    org.opencontainers.image.url="https://github.com/medictroy" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \

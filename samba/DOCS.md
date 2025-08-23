@@ -5,7 +5,7 @@
 Follow these steps to get the add-on installed on your system:
 
 1. Click the Home Assistant My button below to open the add-on on your Home Assistant instance.   
-   [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=bb4914d7_samba&repository_url=https%3A%2F%2Fgithub.com%2Felvit%2Fhassio-addons)  
+   [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=samba_server&repository_url=https%3A%2F%2Fgithub.com%2medictroy%2Fsamba-server)  
 2. Click the `Install` button to install the add-on.  
 3. Go to the `Configuration` tab and set the options to your preferences  
 4. Click the `Save` button to store your configuration.  
@@ -18,7 +18,7 @@ Example add-on configuration:
 
 ```yaml
 custom_config: true
-config_dir: /config/addons-config/samba
+config_dir: /config/addons-config/samba_server
 logins:
   - username: dummyUser
     password: '!secret password'
@@ -30,11 +30,11 @@ logins:
 
 > [!TIP]  
 > Please be aware that if the path `/config/*` is used in the addon-configuration,  
-> this path is actually mapped to the directoy `/addon_configs/bb4914d7_samba/`.  
+> this path is actually mapped to the directoy `/addon_configs/samba_server/`.  
 
 ## Modifying the smb.conf
 
-A default `smb.conf` is created on each start and will be saved to the directory `/addon_configs/bb4914d7_samba/`.  
+A default `smb.conf` is created on each start and will be saved to the directory `/addon_configs/samba_server/`.  
 If you enable the option `custom_config` the smb.conf will only be created once.  
 Then you can modify it and yor changes will be kept even when you restart the addon.  
 In the smb.conf you can define directories that shall be exposed by the samba server.  
@@ -64,7 +64,7 @@ Please keep in mind to change the path or create the directory "/backup/timemach
 ### Option: `custom_config` (mandatory)
 
 Enable this option to use a custom `smb.conf`.  
-If there is no `smb.conf` in the directory `/addon_configs/bb4914d7_samba/`, a default `smb.conf` is created.  
+If there is no `smb.conf` in the directory `/addon_configs/samba-server/`, a default `smb.conf` is created.  
 If this option is disabled, a default `smb.conf` is created each time the addon is started.  
 If this option is enabled, your current `smb.conf` will be used on next addon start.  
 
@@ -91,7 +91,7 @@ In a nutshell, the version will be incremented based on the following:
 ## Support
 
 Got questions?  
-You can simply [open an issue here](https://github.com/ElVit/hassio-addons/issues) on GitHub.  
+You can simply [open an issue here](https://github.com/medictroy/samba-server/issues) on GitHub.  
 
 ## Authors & contributors
 
@@ -99,3 +99,6 @@ The original setup of this repository is taken from the [official samba share ad
 
 The following repository helped me by developing this addon:
 - [Samba NAS addon from dianlight](https://github.com/dianlight/hassio-addons/tree/master/sambanas)
+
+The following repository helped me by developing this addon:
+- [Samba addon from ElVit](https://github.com/ElVit/hassio-addons/tree/main/sambas)

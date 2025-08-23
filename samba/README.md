@@ -6,7 +6,7 @@
 ![Supports armv7 Architecture](https://img.shields.io/badge/armv7-yes-green.svg)
 ![Supports i386 Architecture](https://img.shields.io/badge/i386-yes-green.svg)
 
-![Build and test samba addon](https://github.com/elvit/hassio-addons/actions/workflows/build_samba.yml/badge.svg?branch=main)
+![Build and test samba addon](https://github.com/medictroy/samba-server/actions/workflows/build_samba.yml/badge.svg?branch=main)
 
 ## About
 

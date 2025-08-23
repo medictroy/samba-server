@@ -13,4 +13,3 @@ exec nmbd --foreground \
           --debug-stdout \
           --no-process-group \
           --configfile=$config
-
