@@ -5,7 +5,7 @@
 Follow these steps to get the add-on installed on your system:
 
 1. Click the Home Assistant My button below to open the add-on on your Home Assistant instance.   
-   [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=samba_server&repository_url=https%3A%2F%2Fgithub.com%2medictroy%2Fsamba-server)  
+   [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=samba_server&repository_url=https://github.com/medictroy/samba-server.git)  
 2. Click the `Install` button to install the add-on.  
 3. Go to the `Configuration` tab and set the options to your preferences  
 4. Click the `Save` button to store your configuration.  
