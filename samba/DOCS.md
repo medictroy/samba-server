@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Samba server
+# Home Assistant Add-on: Samba Server with Drive Mounting
 
 ## Installation
 
@@ -18,7 +18,7 @@ Example add-on configuration:
 
 ```yaml
 custom_config: true
-config_dir: /config/addons-config/samba_server
+config_dir: /config/addons-config/12b8afc3_samba
 logins:
   - username: dummyUser
     password: '!secret password'
@@ -30,11 +30,11 @@ logins:
 
 > [!TIP]  
 > Please be aware that if the path `/config/*` is used in the addon-configuration,  
-> this path is actually mapped to the directoy `/addon_configs/samba_server/`.  
+> this path is actually mapped to the directoy `/addon_configs/12b8afc3_samba/`.  
 
 ## Modifying the smb.conf
 
-A default `smb.conf` is created on each start and will be saved to the directory `/addon_configs/samba_server/`.  
+A default `smb.conf` is created on each start and will be saved to the directory `/addon_configs/12b8afc3_samba/`.  
 If you enable the option `custom_config` the smb.conf will only be created once.  
 Then you can modify it and yor changes will be kept even when you restart the addon.  
 In the smb.conf you can define directories that shall be exposed by the samba server.  

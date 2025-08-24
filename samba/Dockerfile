@@ -14,8 +14,8 @@ RUN apk add --no-cache \
     samba-common-tools \
     samba-server \
     samba-client \
-    util-linux \
-    ntfs-3g \
+#    util-linux \
+#    ntfs-3g \
     gcc libc-dev linux-headers build-base autoconf automake git \
     python3-dev musl-dev poetry go lsblk eudev 
 
@@ -151,7 +151,7 @@ HEALTHCHECK \
     CMD smbclient -L '\\localhost' -U '%' -m SMB3
 
 # Copy local files
-#COPY rootfs/ /
+COPY rootfs/ /
 
 # Corrects permissions for s6 v3
 RUN if [ -d /etc/cont-init.d ]; then \
