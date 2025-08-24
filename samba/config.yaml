@@ -1,7 +1,7 @@
 name: Samba Server with Drive Mounting
 description: Expose Home Assistant folders with SMB/CIFS and drive mounting
 url: https://github.com/medictroy/samba-server
-version: 1.0.1
+version: 1.0.2
 stage: test
 slug: sambadrivemount
 codenotary: notary@home-assistant.io

@@ -1,4 +1,5 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.0.3
+#ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.0.3
+ARG BUILD_FROM
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
@@ -6,7 +7,7 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
-FROM ${BUILD_FROM} as builder
+FROM $BUILD_FROM as builder
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 # Install packages
@@ -35,27 +36,8 @@ RUN cd /usr/local/bin/ && \
 
 FROM ${BUILD_FROM}
 
-# Environment variables
-ENV \
-    CARGO_NET_GIT_FETCH_WITH_CLI=true \
-    HOME="/root" \
-    LANG="C.UTF-8" \
-    PIP_DISABLE_PIP_VERSION_CHECK=1 \
-    PIP_FIND_LINKS=https://wheels.home-assistant.io/musllinux/ \
-    PIP_NO_CACHE_DIR=1 \
-    PIP_PREFER_BINARY=1 \
-    PS1="$(whoami)@$(hostname):$(pwd)$ " \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
-    S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
-    S6_CMD_WAIT_FOR_SERVICES=1 \
-    YARN_HTTP_TIMEOUT=1000000 \
-    TERM="xterm-256color"
-
-# Wait more time to allow gracefull shutdown
-ENV S6_KILL_GRACETIME=30000
-ENV S6_SYNC_DISKS=1
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Environment variables
 ENV \
@@ -151,18 +133,18 @@ HEALTHCHECK \
     CMD smbclient -L '\\localhost' -U '%' -m SMB3
 
 # Copy local files
-COPY rootfs/ /
+#COPY rootfs/ /
 
 # Corrects permissions for s6 v3
-RUN if [ -d /etc/cont-init.d ]; then \
-      chmod -R 755 /etc/cont-init.d; \
-    fi && \
-    if [ -d /etc/services.d ]; then \
-      chmod -R 755 /etc/services.d; \
-    fi && \
-    if [ -d /etc/templates ]; then \
-      chmod -R 755 /etc/templates; \
-    fi
+#RUN if [ -d /etc/cont-init.d ]; then \
+#      chmod -R 755 /etc/cont-init.d; \
+#    fi && \
+#    if [ -d /etc/services.d ]; then \
+#      chmod -R 755 /etc/services.d; \
+#    fi && \
+#    if [ -d /etc/templates ]; then \
+#      chmod -R 755 /etc/templates; \
+#    fi
 
 LABEL \
     io.hass.name="${BUILD_NAME}" \
